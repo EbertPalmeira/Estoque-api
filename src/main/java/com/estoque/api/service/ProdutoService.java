@@ -26,14 +26,13 @@ public class ProdutoService {
     public Produto atualizar(DadosAtualizacaoProdutoDTO dados){
         var produto= repository.getReferenceById(dados.id());
         produto.atualizar(dados);
+
         return repository.save(produto);
 
     }
 
     public void excluir(Long id){
-        var produto = repository.findAllById(id);
-
-
+        var produto = repository.findById(id);
 
     }
 

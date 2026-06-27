@@ -57,4 +57,7 @@ public class Produto {
     public void excluir() {
         this.ativo = false;
     }
+
+    public void setId(long Id) {
+    }
 }
