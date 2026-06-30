@@ -1,6 +1,7 @@
 package com.estoque.api.domain.fornecedor;
 
 
+import com.estoque.api.domain.categoria.DadosCadastroCategoriaDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,13 @@ public class Fornecedor {
     private String email;
 
     private String telefone;
+
+    public Fornecedor(DadosCadastroFornecedorDTO dados) {
+        this.nome = dados.nome();
+        this.cnpj = dados.cnpj();
+        this.email = dados.email();
+        this.telefone = dados.telefone();
+    }
 
 
 

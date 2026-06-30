@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Optional;
+
 @Entity(name = "produto")
 @Table(name = "produto")
 @Getter
@@ -36,15 +38,18 @@ public class Produto {
 
     private boolean ativo = true;
 
-    public Produto(DadosCadastroProdutoDTO dados) {
+    public Produto(DadosCadastroProdutoDTO dados, Categoria categoria, Fornecedor fornecedor) {
         this.nome= dados.nome();
         this.descricao = dados.descricao();
         this.preco = dados.preco();
         this.quantidade = dados.quantidade();
-        this.categoria = dados.categoria();
-        this.fornecedor = dados.fornecedor();
+        this.categoria = categoria;
+        this.fornecedor = fornecedor;
 
     }
+
+
+
 
     public void atualizar(DadosAtualizacaoProdutoDTO dados){
         this.nome= dados.nome();

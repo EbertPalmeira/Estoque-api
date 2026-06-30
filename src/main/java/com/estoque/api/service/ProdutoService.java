@@ -1,5 +1,9 @@
 package com.estoque.api.service;
 
+import com.estoque.api.domain.categoria.Categoria;
+import com.estoque.api.domain.categoria.CategoriaRepository;
+import com.estoque.api.domain.fornecedor.Fornecedor;
+import com.estoque.api.domain.fornecedor.FornecedorRepository;
 import com.estoque.api.domain.produto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,9 +16,23 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository repository;
 
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private FornecedorRepository fornecedorRepository;
 
     public Produto cadastrar(DadosCadastroProdutoDTO dados){
-        var produto = new Produto(dados);
+
+        var categoria = categoriaRepository.findById(dados.categoriaId())
+                .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
+
+        var fornecedor = fornecedorRepository.findById(dados.fornecedorId())
+                .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
+
+
+
+        var produto = new Produto(dados,categoria,fornecedor);
         return repository.save(produto);
     }
 

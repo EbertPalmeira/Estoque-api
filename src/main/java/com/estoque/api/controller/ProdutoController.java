@@ -3,6 +3,7 @@ package com.estoque.api.controller;
 
 import com.estoque.api.domain.produto.*;
 import com.estoque.api.service.ProdutoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +22,7 @@ public class ProdutoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(DadosCadastroProdutoDTO dados){
+    public ResponseEntity cadastrar( @RequestBody @Valid DadosCadastroProdutoDTO dados){
         var produto = this.produtoService.cadastrar(dados);
 
         return ResponseEntity.ok().body(new DadosDetalhamentoProdutoDTO(produto));

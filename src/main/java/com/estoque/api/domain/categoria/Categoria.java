@@ -19,7 +19,8 @@ public class Categoria {
 
     private String nome;
 
-    private String descricao;
 
-
+    public Categoria(DadosCadastroCategoriaDTO dados) {
+        this.nome = dados.nome();
+    }
 }

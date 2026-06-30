@@ -1,19 +1,20 @@
 package com.estoque.api.domain.fornecedor;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+
 
 public record DadosCadastroFornecedorDTO(
 
-        @NotNull
+        @NotBlank
         String nome,
 
-        @NotNull
+        @NotBlank
         String cnpj,
 
-        @NotNull
+        @NotBlank
         String email,
 
-        @NotNull
+        @NotBlank
         String telefone
 ) {
 }
