@@ -44,7 +44,7 @@ public class ProdutoController {
         return ResponseEntity.ok(new DadosDetalhamentoProdutoDTO(produto));
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long Id){
         this.produtoService.excluir(Id);

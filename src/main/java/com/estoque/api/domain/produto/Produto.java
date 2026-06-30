@@ -6,12 +6,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Optional;
 
 @Entity(name = "produto")
 @Table(name = "produto")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Produto {

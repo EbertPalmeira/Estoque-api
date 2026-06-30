@@ -4,22 +4,12 @@ import com.estoque.api.domain.cliente.Cliente;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record DadosCadastroPedidoDTO(
-        @NotNull
-        Cliente cliente,
-
-        @NotNull
-        Status status,
-
-        @NotNull
+        @NotNull Long clienteId,
         LocalDate dataPedido,
-
-        @NotNull
-        Long itemPedidoId,
-
-        @NotNull
-        Double total
+        @NotNull List<ItemPeditoDTO> itens
 
 ) {
 }

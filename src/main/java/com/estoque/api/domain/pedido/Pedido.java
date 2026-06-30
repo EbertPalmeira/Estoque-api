@@ -39,5 +39,15 @@ public class Pedido {
 
     private Double total;
 
+    public Pedido(DadosCadastroPedidoDTO dados, Cliente cliente, Status status) {
+        this.cliente=cliente;
+        this.dataPedido=dados.dataPedido();
+        this.status=status;
+        this.dataPedido=dados.dataPedido();
+        this.total = 0.0;
+    }
 
+
+    public void setTotal(double total) {
+    }
 }

@@ -23,7 +23,25 @@ public class Cliente {
 
     private String email;
 
+    private boolean ativo = true;
+
     public void setId(long Id) {
+    }
+
+    public Cliente(DadosCadastroClienteDTO dados){
+        this.nome = dados.nome();
+        this.cpf = dados.cpf();
+        this.email = dados.email();
+
+    }
+    public void atualizar(DadosAtualizacaoClienteDTO dados){
+        this.nome = dados.nome();
+        this.cpf = dados.cpf();
+        this.email = dados.email();
+
+    }
+    public void excluir() {
+        this.ativo = false;
     }
 
 }
