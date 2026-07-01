@@ -3,10 +3,7 @@ package com.estoque.api.domain.pedido;
 
 import com.estoque.api.domain.cliente.Cliente;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
@@ -16,6 +13,7 @@ import java.util.List;
 @Entity(name = "pedido")
 @Table(name = "pedido")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -41,13 +39,25 @@ public class Pedido {
 
     public Pedido(DadosCadastroPedidoDTO dados, Cliente cliente, Status status) {
         this.cliente=cliente;
-        this.dataPedido=dados.dataPedido();
         this.status=status;
-        this.dataPedido=dados.dataPedido();
+        this.dataPedido=LocalDate.now();
         this.total = 0.0;
+    }
+    public void atualizar(DadosAtualizacaoPedidoDTO dados) {
+        if (dados.status() != null) {
+            this.status = dados.status();
+        }
+
+        if (dados.dataPedido() != null) {
+            this.dataPedido = dados.dataPedido();
+        }
+
     }
 
 
     public void setTotal(double total) {
+        this.total = total;
     }
+
+
 }

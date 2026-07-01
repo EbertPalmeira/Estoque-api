@@ -1,6 +1,6 @@
 package com.estoque.api.domain.pedido;
 
-import com.estoque.api.domain.cliente.Cliente;
+
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;

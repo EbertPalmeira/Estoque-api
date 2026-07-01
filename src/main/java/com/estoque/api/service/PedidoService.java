@@ -5,6 +5,7 @@ import com.estoque.api.domain.pedido.*;
 import com.estoque.api.domain.produto.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PedidoService {
@@ -19,6 +20,7 @@ public class PedidoService {
     private ClienteRepository clienteRepository;
 
 
+    @Transactional
     public Pedido cadastrar(DadosCadastroPedidoDTO dados) {
 
         var cliente = clienteRepository.findById(dados.clienteId())
@@ -55,15 +57,24 @@ public class PedidoService {
             produto.setQuantidade(produto.getQuantidade() - itemDTO.quantidade());
             produtoRepository.save(produto);
 
-            // Acumular total
+
             total += subtotal;
         }
 
-        // 4. Definir o total do pedido
         pedido.setTotal(total);
 
-
+        System.out.println("💾 Salvando pedido com total: " + total);
         return pedidoRepository.save(pedido);
+    }
+
+    public Pedido atualizarStatus(Long id, Status novoStatus) {
+        var pedido = pedidoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pedido não encontrado"));
+
+        pedido.setStatus(novoStatus);
+        return pedidoRepository.save(pedido);
+
+
     }
 
 }
