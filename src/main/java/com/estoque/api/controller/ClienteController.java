@@ -5,6 +5,7 @@ import com.estoque.api.domain.cliente.DadosAtualizacaoClienteDTO;
 import com.estoque.api.domain.cliente.DadosCadastroClienteDTO;
 import com.estoque.api.domain.cliente.DadosListagemClienteDTO;
 import com.estoque.api.service.ClienteService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("cliente")
+@SecurityRequirement(name = "bearer-key")
 public class ClienteController {
 
     @Autowired

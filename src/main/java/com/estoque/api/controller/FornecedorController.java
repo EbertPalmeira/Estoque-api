@@ -5,6 +5,7 @@ import com.estoque.api.domain.fornecedor.DadosCadastroFornecedorDTO;
 import com.estoque.api.domain.fornecedor.DadosDetalhamentoFornecedorDTO;
 import com.estoque.api.domain.fornecedor.DadosListagemFornecedorDTO;
 import com.estoque.api.service.FornecedorService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("fornecedor")
+@SecurityRequirement(name = "bearer-key")
 public class FornecedorController {
 
     @Autowired
