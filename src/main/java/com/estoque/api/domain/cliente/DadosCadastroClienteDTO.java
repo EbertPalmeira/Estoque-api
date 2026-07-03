@@ -10,7 +10,7 @@ public record DadosCadastroClienteDTO(
         String cpf,
 
         @NotNull
-        String email
+        String email)
 
-) {
+         {
 }

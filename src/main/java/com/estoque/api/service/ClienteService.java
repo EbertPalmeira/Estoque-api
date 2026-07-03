@@ -24,7 +24,7 @@ public class ClienteService {
     }
 
     public Cliente atualizar(DadosAtualizacaoClienteDTO dados){
-        var cliente = clienteRepository.getReferenceById(dados.id());
+        var cliente = clienteRepository.getReferenceById(Long.valueOf(dados.id()));
         return clienteRepository.save(cliente);
     }
     public void excluir(Long id){

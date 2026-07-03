@@ -25,6 +25,8 @@ public class Cliente {
 
     private boolean ativo = true;
 
+
+
     public void setId(long Id) {
     }
 

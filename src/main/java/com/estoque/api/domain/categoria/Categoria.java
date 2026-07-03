@@ -23,4 +23,6 @@ public class Categoria {
     public Categoria(DadosCadastroCategoriaDTO dados) {
         this.nome = dados.nome();
     }
+
+
 }
