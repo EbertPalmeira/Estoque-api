@@ -24,7 +24,18 @@ public class ClienteService {
     }
 
     public Cliente atualizar(DadosAtualizacaoClienteDTO dados){
-        var cliente = clienteRepository.getReferenceById(Long.valueOf(dados.id()));
+        var cliente = clienteRepository.getReferenceById(dados.id());
+        if (dados.nome() != null) {
+            cliente.setNome(dados.nome());
+        }
+        if (dados.cpf() != null) {
+            cliente.setCpf(dados.cpf());
+        }
+        if (dados.email() != null) {
+            cliente.setEmail(dados.email());
+        }
+
+
         return clienteRepository.save(cliente);
     }
     public void excluir(Long id){

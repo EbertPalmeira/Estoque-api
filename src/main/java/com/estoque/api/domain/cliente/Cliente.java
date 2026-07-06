@@ -5,10 +5,12 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity(name = "cliente")
 @Table(name = "cliente")
 @NoArgsConstructor
+@Setter
 @AllArgsConstructor
 @Getter
 public class Cliente {
@@ -27,7 +29,8 @@ public class Cliente {
 
 
 
-    public void setId(long Id) {
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Cliente(DadosCadastroClienteDTO dados){
@@ -45,5 +48,6 @@ public class Cliente {
     public void excluir() {
         this.ativo = false;
     }
+
 
 }

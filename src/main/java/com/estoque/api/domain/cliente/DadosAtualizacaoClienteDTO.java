@@ -1,7 +1,7 @@
 package com.estoque.api.domain.cliente;
 
 public record DadosAtualizacaoClienteDTO(
-        String id,
+        Long id,
         String nome ,
         String cpf,
         String email
