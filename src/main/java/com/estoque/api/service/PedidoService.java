@@ -30,7 +30,7 @@ public class PedidoService {
 
         double total = 0.0;
 
-        for (ItemPeditoDTO itemDTO : dados.itens()) {
+        for (ItemPedidoDTO itemDTO : dados.itens()) {
             // Buscar o produto
             var produto = produtoRepository.findById(itemDTO.produtoId())
                     .orElseThrow(() -> new RuntimeException("Produto não encontrado: " + itemDTO.produtoId()));
